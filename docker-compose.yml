@@ -58,9 +58,9 @@ services:
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - ./elt:/opt/airflow/elt
-      - ./custom_films_postgres:/opt/dbt
+      - ./dbt_transformations:/opt/dbt
       - ~/.dbt:/root/.dbt
-      - //var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - LOAD_EX=n
       - EXECUTOR=Local
@@ -89,7 +89,7 @@ services:
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - ./elt:/opt/airflow/elt
-      - ./custom_films_postgres:/opt/dbt
+      - ./dbt_transformations:/opt/dbt
       - ~/.dbt:/root/.dbt
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
